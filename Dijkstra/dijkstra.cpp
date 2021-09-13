@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main()
-{
+int main(){
+    Graph g = read_graph();
     return 0;
 }
