@@ -4,13 +4,47 @@
 using namespace std;
 
 vector<int> dijkstra(Graph g, int source){
+    int v = g.get_size();
+    vector<node*> edges = g.get_edges(); 
+    vector<int> parents;
+    vector<int> distances;
+
+    for(int i=0; i < v; i++){
+        distances.push_back(INT_MAX);
+        parents.push_back(-1);
+    }
+
+    //implementação da heap miníma de c++
+    priority_queue< pair<int,int>, vector <pair<int,int>> , greater<pair<int,int>> > min_heap;
+
+    distances[source] = 0;
+    min_heap.push(make_pair(distances[source], source));
+
+    while(min_heap.size() > 0 ){
+        int u = min_heap.top().second;
+        min_heap.pop();
+        node *current = edges[u];
+        while(current != NULL){
+            int weight = current->weight;
+            int dest = current->dest;
+
+            if(distances[dest] > distances[u] + weight){
+                distances[dest] = distances[u] + weight;
+                parents[dest] = u;
+                min_heap.push(make_pair(distances[dest], dest));
+            }
+            current = current->next;
+        }
+    }
+
+    return distances;
 
 }
 void help(){
     printf("Algoritmo de Dijkstra para caminhos mínimos:\n"
     "Para saber a distância mínima de um vértice x a y, use: \n./dijkstra -f entrada.in -i x -l y\n"
-    "Para saber a distância mínima de um vértice x para todos, use: \n./dijkstra -f entrada.in -i x"
-    "Para mostrar o caminho completo, use: \n./dijkstra -f entrada.in -i x -s");
+    "Para saber a distância mínima de um vértice x para todos, use: \n./dijkstra -f entrada.in -i x\n"
+    "Para mostrar o caminho completo, use: \n./dijkstra -f entrada.in -i x -s\n");
 }
 
 int main(int argc, char* argv[]){
@@ -37,7 +71,7 @@ int main(int argc, char* argv[]){
             vector<int> dists = dijkstra(g, source);
             if (!o) printf("distância de %d para %d = %d\n", source, dest, dists[dest]);
             else{
-                output_file << "distância de " << source << " para " << dest <<" = " << dists[dest] << endl;
+                output_file << "distância de " << source << " para " << dest <<" = " << dists[dest] << endl; 
             }
         }
         else if(s || in){
@@ -46,8 +80,7 @@ int main(int argc, char* argv[]){
             else{
                 output_file << "distância de " << source << " para todos os outros vértices:" << endl;
             }
-            for (int i = 0; i < dists.size(); i++)
-            {
+            for (int i = 0; i < dists.size(); i++){
                 if (!o) printf("%d:%d  ", i, dists[i]);
                 else{
                     output_file << i << ":" << dists[i] << "  ";
@@ -57,6 +90,6 @@ int main(int argc, char* argv[]){
             output_file << endl;
         }
     }
-    output_file.close();
+    output_file.close(); 
     return 0;
 }
