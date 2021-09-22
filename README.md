@@ -1,5 +1,5 @@
 # Algoritmos de Grafos 
-Neste repositório, existem quatro algoritmos de grafos implementados em C++ para a disciplina de Teoria dos Grafos. Para executar um algoritmo, basta entrar na pasta do algoritmo desejado, compilar, e executar.
+Neste repositório, existem quatro algoritmos de grafos implementados em C++ para a disciplina de Teoria dos Grafos. Para executar um algoritmo, basta entrar na pasta do algoritmo desejado, compilar e executar.
 
 Exemplo com algoritmo de dijkstra:
 
