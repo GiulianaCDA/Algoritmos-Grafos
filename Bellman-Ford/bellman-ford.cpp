@@ -45,7 +45,7 @@ vector<int> bellman(Graph g, int source){
             int d = neighs->dest;
             int w = neighs->weight;
             neighs = neighs->next;
-            // Escolhendo o menor caminho
+            // Se após |V|-1 iterações ainda existe um melhor caminho
             if (distances[j] + w < distances[d] && distances[j] != INT_MAX)
             {
                 printf("Ciclo negativo detectado!\n");
@@ -56,12 +56,10 @@ vector<int> bellman(Graph g, int source){
     return distances;
 }
 
-void help()
-{
+void help(){
     printf("Algoritmo de Bellman-Ford para caminhos mínimos com arestas negativas:\n"
     "Para saber a distância mínima de um vértice x a y, use: \n./bellman-ford -f entrada.in -i x -l y\n"
-    "Para saber a distância mínima de um vértice x para todos, use: \n./bellman-ford -f entrada.in -i x"
-    "Para mostrar o caminho completo, use: \n./bellman-ford -f entrada.in -i x -s");
+    "Para saber a distância mínima de um vértice x para todos, use: \n./bellman-ford -f entrada.in -i x\n");
 }
 
 int main(int argc, char* argv[]){

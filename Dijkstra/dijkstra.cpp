@@ -40,6 +40,7 @@ vector<int> dijkstra(Graph g, int source){
     return distances;
 
 }
+
 void help(){
     printf("Algoritmo de Dijkstra para caminhos mínimos:\n"
     "Para saber a distância mínima de um vértice x a y, use: \n./dijkstra -f entrada.in -i x -l y\n"
