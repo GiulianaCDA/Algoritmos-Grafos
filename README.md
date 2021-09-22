@@ -1,23 +1,22 @@
-# Algoritmos de Grafos em C++
+# Algoritmos de Grafos 
 Neste repositório, existem quatro algoritmos de grafos implementados em C++ para a disciplina de Teoria dos Grafos. Para executar um algoritmo, basta entrar na pasta do algoritmo desejado, compilar, e executar.
 
 Exemplo com algoritmo de dijkstra:
 
 Compile o código:
 
-```g++ dijsktra.cpp -o dijkstra```
-
+```
+  g++ dijsktra.cpp -o dijkstra
+```
+## Como executar
 Para a execução, existem alguns parâmetros que podem ser recebidos:
--h : mostra o help
--o <arquivo> : redireciona a saida para o ‘‘arquivo’’
--f <arquivo> : indica o ‘‘arquivo’’ que contém o grafo de entrada
--s : mostra a solução (em ordem crescente)
--i : vértice inicial (dependendo do algoritmo)
--l : vértice final (dependendo do algoritmo)
+- -h : mostra o help 
+- -o <arquivo> : redireciona a saida para o ‘‘arquivo’’
+- -f <arquivo> : indica o ‘‘arquivo’’ que contém o grafo de entrada
+- -s : mostra a solução (em ordem crescente)
+- -i : vértice inicial (dependendo do algoritmo)
+- -l : vértice final (dependendo do algoritmo)
 
-Para instruções específicas de como utilizar cada algoritmo:
-
-```./dijsktra -h```
 
 ## Dijkstra
 Um algoritmo de caminhos mínimos, com complexidade O(|E| + |V|log|V|), porém incapaz de calcular caminhos em grafos com arestas de pesos negativos.
