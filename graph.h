@@ -66,8 +66,7 @@ Graph read_graph_file(const char* file){
     split(line, &edges, &vertexes, &temp);
     Graph grafo(vertexes);
 
-    if (input_file.is_open())
-    {
+    if (input_file.is_open()){
         while (getline(input_file,line))
         {
             int source, dest, weight;
