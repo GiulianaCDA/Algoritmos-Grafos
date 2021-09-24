@@ -30,7 +30,7 @@ pair < vector<int>, int> prim(Graph g, int source){
     costs[source] = 0;
     min_heap.push(make_pair(costs[source], source));
 
-    while(min_heap.size() > 0 ){
+    while(min_heap.size() > 0){
         int u = min_heap.top().second; 
         min_heap.pop();
        // if(visited[u]) continue; 
@@ -61,7 +61,7 @@ void help(){
 
 int main(int argc, char* argv[]){
     int f = 0, o = 0, s = 0, in = 0, l = 0;
-    int source, dest;
+    int source = 0, dest;
     char* input_name;
     char* output_name;
     // Recebendo e tratando os argumentos
