@@ -11,6 +11,7 @@ int total_cost(vector<int> costs){
 
     return total;
 }
+
 pair < vector<int>, int> prim(Graph g, int source){
     int v = g.get_size();
     vector<node*> edges = g.get_edges(); 
@@ -94,9 +95,10 @@ int main(int argc, char* argv[]){
                 output_file << "árvore geradora mínima: " << endl;
             }
             for (int i = 0; i < costs.size(); i++){  
-                if (!o) printf("(%d,%d)  ", i, costs[i]); 
+                if (costs[i] == -1) continue;
+                if (!o) printf("(%d,%d)  ", costs[i], i); 
                 else{
-                    output_file  << "(" << i << "," << costs[i] << ")  ";
+                    output_file  << "(" << costs[i] << "," << i << ")  ";
                 }
             }
             printf("\n");
